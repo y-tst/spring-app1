@@ -9,13 +9,25 @@
 
     <context:property-placeholder location="classpath:musicPlayer.properties"/>
 
-    <bean id="musicBean"
+    <bean id="rockMusicBean"
           class="org.yanchuk.springcourse.RockMusic">
+    </bean>
+    <bean id="classicalMusicBean"
+          class="org.yanchuk.springcourse.ClassicalMusic">
+    </bean>
+    <bean id="reggaeMusicBean"
+          class="org.yanchuk.springcourse.ReggaeMusic">
     </bean>
 
     <bean id="musicPlayer"
           class="org.yanchuk.springcourse.MusicPlayer">
-        <property name="music" ref="musicBean"/>
+        <property name="music">
+            <list value-type="musicBean">
+                <ref bean="rockMusicBean"/>
+                <ref bean="classicalMusicBean"/>
+                <ref bean="reggaeMusicBean"/>
+            </list>
+        </property>
 
         <property name="name" value="${musicPlayer.name}"/>
         <property name="volume" value="${musicPlayer.volume}"/>

@@ -1,8 +1,15 @@
 package org.yanchuk.springcourse;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class MusicPlayer {
 
-    private Music music;
+
+    private  String name;
+    private  int volume;
+
+    private List<Music> musicList = new ArrayList<>();
 
     public String getName() {
         return name;
@@ -20,22 +27,22 @@ public class MusicPlayer {
         this.volume = volume;
     }
 
-    private  String name;
-    private  int volume;
-
     // IoC
-    public MusicPlayer(Music music) {
-        this.music = music;
+    public MusicPlayer(List<Music> musicList) {
+        this.musicList = musicList;
     }
 
     public MusicPlayer() {
     }
 
-    public void setMusic(Music music) {
-        this.music = music;
+    public void setMusic(List<Music> musicList) {
+        this.musicList = musicList;
     }
 
     public void playMusic() {
-        System.out.println("Playing: " + music.getSong());
+        for (int i = 0; i < musicList.size(); i++) {
+            System.out.println("Playing: " + musicList.get(i).getSong());
+        }
+
     }
 }
