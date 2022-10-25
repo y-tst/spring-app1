@@ -27,21 +27,13 @@ public class MusicPlayer {
         this.volume = volume;
     }
 
-    // IoC
-    public MusicPlayer(List<Music> musicList) {
-        this.musicList = musicList;
-    }
-
-    public MusicPlayer() {
-    }
-
     public void setMusic(List<Music> musicList) {
         this.musicList = musicList;
     }
 
     public void playMusic() {
-        for (int i = 0; i < musicList.size(); i++) {
-            System.out.println("Playing: " + musicList.get(i).getSong());
+        for (Music music : musicList) {
+            System.out.println("Playing: " + musicList.get(musicList.indexOf(music)).getSong());
         }
 
     }
