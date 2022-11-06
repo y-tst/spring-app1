@@ -7,14 +7,20 @@ public class TestSpring {
 
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("applicationCont.xml");
 
-        org.yanchuk.spring_anotations.Music music = context.getBean("classicalMusic", Music.class);
-        org.yanchuk.spring_anotations.Music music2 = context.getBean("rockMusic", Music.class);
+//        Music music = context.getBean("classicalMusic", Music.class);
+//        Music music2 = context.getBean("rockMusic", Music.class);
+//
+//        MusicPlayer musicPlayer = new MusicPlayer(music);
+//        MusicPlayer musicPlayer2 = new MusicPlayer(music2);
+//
+//        musicPlayer.playMusic();
+//        musicPlayer2.playMusic();
 
-        org.yanchuk.spring_anotations.MusicPlayer musicPlayer = new MusicPlayer(music);
-        org.yanchuk.spring_anotations.MusicPlayer musicPlayer2 = new MusicPlayer(music2);
+ /*       MusicPlayer musicPlayer = context.getBean("musicPlayer", MusicPlayer.class);
+        musicPlayer.playMusic();  */
 
-        musicPlayer.playMusic();
-        musicPlayer2.playMusic();
+        Computer computer = context.getBean("computer", Computer.class);
+        System.out.println(computer);
 
         context.close();
     }
