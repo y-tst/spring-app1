@@ -1,11 +1,16 @@
 package org.yanchuk.spring_anotations;
 
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class TestSpring {
     public static void main(String[] args) {
 
-        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("applicationContV2.xml");
+        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(
+                SpringConfig.class
+        );
+
+//        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("applicationContV2.xml");
 
 //        Music music = context.getBean("classicalMusic", Music.class);
 //        Music music2 = context.getBean("rockMusic", Music.class);
